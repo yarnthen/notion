@@ -8,8 +8,14 @@
       const month = ["01","02","03","04","05","06","07","08","09","10","11","12"];
       var time = ("0" + today.getHours()).slice(-2) + ":" + ("0" + today.getMinutes()).slice(-2) + " " +  ("0" + today.getDate()).slice(-2) + "/" + month[today.getMonth()] + "/" + today.getFullYear();
       navigator.clipboard.writeText(time)
+      document.getElementById("currentDateTime").innerHTML = time;
+      setTimeout(setBackButtonTitle, 1000);
+      
+    }
+    function setBackButtonTitle(){
+      document.getElementById("currentDateTime").innerHTML = "Current Date Time";
     }
   </script>
-  <button onclick="copyCurrentDate()" style="background-color: olive;color: antiquewhite;">Current Date Time</button>
+  <button onclick="copyCurrentDate()" id="currentDateTime" style="background-color: olive;color: antiquewhite;">Current Date Time</button>
 </body>
 </html>
