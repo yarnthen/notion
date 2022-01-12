@@ -9,20 +9,19 @@
             var today = new Date();
             const month = ["01","02","03","04","05","06","07","08","09","10","11","12"];
             var time = ("0" + today.getHours()).slice(-2) + ":" + ("0" + today.getMinutes()).slice(-2) + " " +  ("0" + today.getDate()).slice(-2) + "/" + month[today.getMonth()] + "/" + today.getFullYear();
-            navigator.clipboard.writeText(time)
-            document.getElementById("currentDateTime").innerHTML = time;
+            document.getElementById("currentTime").value = time;
             setTimeout(setBackButtonTitle, 1000);
         }
         function setBackButtonTitle(){
-            document.getElementById("currentDateTime").innerHTML = "Current Date Time";
+            document.getElementById("currentTime").value = "Current Date Time";
         }
     </script>
-    <!--  <input value="Current Date Time" id="currentTime" readonly/> -->
+    <input value="Current Date Time" id="currentTime" size="15" readonly/>
         <button onclick="copyCurrentDate()"
             data-controller="components--clipboard"
             data-target="components--clipboard.copyText"
-            data-clipboard-text=time
-            id="currentDateTime" style="background-color: olive;color: antiquewhite;height: 25px;align-items: top;">Current Date Time
+            data-clipboard-target=#currentTime
+            id="currentDateTime" style="background-color: olive;color: antiquewhite;">Copy
         </button>
     </body>
 </html>
