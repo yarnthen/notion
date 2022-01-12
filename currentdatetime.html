@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://apption.co/packs/js/application-3899d0419381444b55cd.js" data-turbolinks-track="reload"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 </head>
 <body>
+    <script type="text/javascript">
+        var Clipboard = new ClipboardJS('.btn');
+    </script>
     <script>
-        function copyCurrentDate(){
+        function showCurrentDate(){
             var today = new Date();
             const month = ["01","02","03","04","05","06","07","08","09","10","11","12"];
             var time = ("0" + today.getHours()).slice(-2) + ":" + ("0" + today.getMinutes()).slice(-2) + " " +  ("0" + today.getDate()).slice(-2) + "/" + month[today.getMonth()] + "/" + today.getFullYear();
             document.getElementById("currentTime").value = time;
-            setTimeout(setBackButtonTitle, 1000);
+            setTimeout(setBackTextTitle, 1000);
         }
-        function setBackButtonTitle(){
-            document.getElementById("currentTime").value = "Current Date Time";
+        function setBackTextTitle(){
+            document.getElementById("currentTime").value = "Click Copy to get Current Date and Time";
         }
     </script>
-    <input value="Current Date Time" id="currentTime" size="15" readonly/>
-        <button onclick="copyCurrentDate()"
-            data-controller="components--clipboard"
-            data-target="components--clipboard.copyText"
-            data-clipboard-target=#currentTime
-            id="currentDateTime" style="background-color: olive;color: antiquewhite;">Copy
-        </button>
+    <input value="Click Copy to get Current Date and Time" id="currentTime" size="35" readonly/>
+    <button class="btn" onclick="showCurrentDate()" data-clipboard-target="#currentTime" style="background-color: olive;color: antiquewhite;">Copy</button>
     </body>
 </html>
